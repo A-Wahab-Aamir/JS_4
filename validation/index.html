@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+    function validate(){
+        var  user=document.getElementById('username');
+        var  pass=document.getElementById("password");
+        var isValid = true
+        if(user.value.trim() == ""){
+            user.style.border=" solid 3px red";
+            document.getElementById('usererror').style.visibility="visible"
+            isValid = false
+        }
+        if(user.value.trim() != ""){
+            user.style.border=" solid 3px green";
+            document.getElementById('usererror').style.visibility="hidden"
+            isValid = false
+        }
+        if(pass.value.trim() == ""){
+            pass.style.border=" solid 3px red";
+             document.getElementById('passerror').style.visibility="visible"
+            isValid = false
+        }
+        else if(pass.value.trim().length < 5 ){
+            alert("Password can not be too Short")
+            isValid = false
+        }
+        else if(pass.value.trim() != ""){
+            pass.style.border=" solid 3px green";
+            document.getElementById('passerror').style.visibility="hidden"
+        }
+        if(user.value.trim() != "" && pass.value.trim().length > 4){
+            isValid = true
+        }
+
+        return isValid
+    }
+</script>
+<body>
+    <form action="welcome.html" onsubmit="return validate()">
+        <div class="container">
+
+<table border="0">
+    <tr>
+        <td>
+            <label for="username">Enter Username</label>
+        <input type="text" name="username" id="username" placeholder="Enter Username">
+        <td>
+            <p style="font-size: 10px;color: red;visibility: hidden;" id="usererror">Username Not Defined</p>
+        </td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+ <label for="password">Enter Password</label>
+            <input type="text" name="password" id="password" placeholder="Enter Password">
+        </td>
+        <td>
+            <p style="font-size: 10px;color: red;visibility: hidden;" id="passerror">Password Not Defined</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="Submit" >
+        </td>
+    </tr>
+</table>
+          
+            
+            
+         
+
+           
+               
+          
+           
+        </div>
+    </form>
+</body>
+</html>
