@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Title</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="display-2 fw-bold p-5 text-center">Login Into Account</h1>
+        <form action="welcome.html" onsubmit="return Valid()">
+            <table border="0" class="table">
+                <tr>
+                    <td><input type="text" placeholder="Enter your username" class="form-control " id="uname"></td>
+                    <td><p class="fw-bold fs-6 text-danger " style="visibility: hidden;" id="uerror">Username is not Valid ! ❌❌</p></td>
+                </tr>
+                <tr>
+                    <td><input type="password" placeholder="Enter your Password" class="form-control " id="pass"></td>
+                    <td><p class="fw-bold fs-6 text-danger" style="visibility: hidden;" id="perror">Password is not Valid ! ❌❌</p></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Login " class="btn btn-success btn-lg" ></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+<script>
+    function Valid(){
+
+        var uname=document.getElementById('uname');
+        var pass=document.getElementById('pass')
+        var invalid=true
+
+        if(uname.value.trim() == ""){
+            document.getElementById('uname').style.border="5px red solid";
+            document.getElementById('uerror').style.visibility="visible"; 
+            invalid=false
+        }
+        if(uname.value.trim() !=""){
+            document.getElementById('uname').style.border="5px green solid";
+            document.getElementById('uerror').style.visibility="hidden"; 
+            invalid=false
+        }
+        if(pass.value.trim() == ""){
+            document.getElementById('pass').style.border="5px red solid";
+            document.getElementById('perror').style.visibility="visible"; 
+            invalid=false
+        }
+        else if (pass.value.trim().length < 5){
+            alert("Password can not be too Short")
+            document.getElementById('perror').style.visibility="visible";
+            invalid=false
+        }
+        else if(pass.value.trim() != ""){
+            document.getElementById('pass').style.border="5px green solid";
+            document.getElementById('perror').style.visibility="hidden"; 
+            invalid=false
+        }
+
+        if(pass.value.trim() != "" && pass.value.trim().length > 5 && uname.value.trim()!=""){
+            invalid=true
+        }
+        
+        return invalid
+      
+
+        
+
+
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>
