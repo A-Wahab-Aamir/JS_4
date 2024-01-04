@@ -52,45 +52,32 @@
     <script>
         function validate() {
             var uname = document.getElementById('username');
-            var pass = document.getElementById('password')
-            inValid = true;
+            var pass = document.getElementById('password');
+            var usercheck = /^[A-Za-z0-9]{3,30}$/
+            if (usercheck.test(uname.value)) {
+                document.getElementById('usererror').style.visibility = 'hidden'
+                document.getElementById("username").style.border = "5px solid green"
+                return true
+            }
+            else if (!usercheck.test(uname.value)) {
+                document.getElementById('usererror').style.visibility = 'visible'
+                return false
 
+            }
             if (uname.value.trim() == '') {
                 document.getElementById('usererror').style.visibility = 'visible'
-                inValid = false
+                return false
 
             }
 
             if (uname.value.trim() != '') {
                 document.getElementById('usererror').style.visibility = 'hidden'
                 document.getElementById("username").style.border = "5px solid green"
-                inValid = false
+                return true
 
             }
 
-            if (pass.value.trim() == '') {
-                document.getElementById('passerror').style.visibility = 'visible'
-                inValid = false
-
-            }
-            else if (pass.value.trim().length < 5) {
-                alert("Password can not be Too Short! ")
-                document.getElementById('passerror').style.visibility = 'visible'
-                inValid = false
-
-            }
-
-            else if (pass.value.trim() != '') {
-                document.getElementById('passerror').style.visibility = 'hidden'
-                document.getElementById("password").style.border = "5px solid green"
-                inValid = false
-
-            }
-            if (uname.value.trim() != '' && pass.value.trim().length > 5) {
-                inValid = true;
-            }
-
-            return inValid
+            
         }
 
     </script>
